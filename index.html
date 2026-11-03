@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>To-Do List</title>
+  <meta name="description" content="A simple, offline to-do list." />
+
+  <meta name="theme-color" content="#4c6ef5" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#12151d" media="(prefers-color-scheme: dark)" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="To-Do" />
+  <meta name="format-detection" content="telephone=no" />
+
+  <link rel="icon" href="icons/icon-192.png" type="image/png" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="app__header">
+      <h1>To-Do List</h1>
+      <p class="app__date" id="date"></p>
+    </header>
+
+    <form class="add-form" id="add-form" autocomplete="off">
+      <input
+        class="add-form__input"
+        id="new-task"
+        type="text"
+        placeholder="What needs doing?"
+        maxlength="200"
+        enterkeyhint="done"
+        autocapitalize="sentences"
+        autocorrect="off"
+        spellcheck="false"
+        aria-label="New task"
+      />
+      <button class="add-form__button" type="submit">Add</button>
+    </form>
+
+    <section class="toolbar" aria-label="Task filters">
+      <div class="filters" role="group" aria-label="Filter tasks">
+        <button class="filter is-active" data-filter="all" type="button">All</button>
+        <button class="filter" data-filter="active" type="button">Active</button>
+        <button class="filter" data-filter="done" type="button">Done</button>
+      </div>
+      <button class="clear" id="clear-done" type="button">Clear done</button>
+    </section>
+
+    <ul class="list" id="list"></ul>
+
+    <p class="empty" id="empty" hidden>Nothing here yet. Add your first task above.</p>
+
+    <footer class="app__footer">
+      <span id="count">0 tasks left</span>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
